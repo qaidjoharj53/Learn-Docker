@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>TodoNode</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <h1>TodoNode</h1>
+
+  <!-- Form to Add New Task -->
+  <form action="/add" method="POST">
+    <input type="text" name="title" placeholder="Enter a new task" required>
+    <button type="submit">Add Task</button>
+  </form>
+
+  <!-- Display List of Tasks -->
+  <ul>
+    <% tasks.forEach(task => { %>
+      <li>
+        <%= task.title %>
+        <!-- Form to Delete Task -->
+        <form action="/delete/<%= task.id %>" method="POST" style="display: inline;">
+          <button type="submit">Delete</button>
+        </form>
+      </li>
+    <% }); %>
+  </ul>
+
+</body>
+</html>
